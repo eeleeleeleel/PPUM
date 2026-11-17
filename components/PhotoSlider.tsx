@@ -169,7 +169,7 @@ export default function PhotoSlider({
 
   return (
     // Slide width is capped so a 4:5 photo plus the counter fits in one screen.
-    <div className="w-full [--gap:16px] [--slide:min(78vw,calc((100svh-18rem)*0.8))] md:[--gap:24px] md:[--slide:min(44vw,calc((100svh-18rem)*0.8))]">
+    <div data-slider className="w-full [--gap:16px] [--slide:min(78vw,calc((100svh-18rem)*0.8))] md:[--gap:24px] md:[--slide:min(44vw,calc((100svh-18rem)*0.8))]">
       {label && (
         <p className="mb-4 text-center text-base font-semibold uppercase tracking-[0.2em] md:hidden">
           {label}

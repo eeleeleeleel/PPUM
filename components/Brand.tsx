@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import MenuDrawer from "./MenuDrawer";
 
-const CREAM = "#F8F5EE";
+const CREAM = "#F2F0E8";
 const BLACK = "#000000";
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
@@ -17,7 +17,7 @@ export default function Brand() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     const zoomDelay = prefersReducedMotion ? 0 : 50;
@@ -69,9 +69,18 @@ export default function Brand() {
             className="-m-3 p-3"
           >
             <span className="flex flex-col gap-[5px]" style={{ width: 24 }}>
-              <span className="h-[2px] w-full shrink-0" style={{ backgroundColor: CREAM }} />
-              <span className="h-[2px] w-full shrink-0" style={{ backgroundColor: CREAM }} />
-              <span className="h-[2px] w-full shrink-0" style={{ backgroundColor: CREAM }} />
+              <span
+                className="h-[2px] w-full shrink-0"
+                style={{ backgroundColor: CREAM }}
+              />
+              <span
+                className="h-[2px] w-full shrink-0"
+                style={{ backgroundColor: CREAM }}
+              />
+              <span
+                className="h-[2px] w-full shrink-0"
+                style={{ backgroundColor: CREAM }}
+              />
             </span>
           </button>
 
@@ -111,27 +120,6 @@ export default function Brand() {
           >
             temps.
           </p>
-        </div>
-
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex justify-center sm:bottom-8 md:bottom-10"
-          style={{
-            opacity: photoVisible ? 1 : 0,
-            transition: `opacity 700ms ${EASE}`,
-          }}
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke={CREAM}
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-6 w-6 animate-bounce"
-            style={{ filter: "drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35))" }}
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
         </div>
       </div>
     </div>

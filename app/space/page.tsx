@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import SubpageHeader from "@/components/SubpageHeader";
 import PhotoSlider from "@/components/PhotoSlider";
+import SpaceTabs from "@/components/SpaceTabs";
 
 export const metadata: Metadata = {
   title: "Space — temps. studio",
@@ -43,47 +43,24 @@ const spaces = [
 
 export default function SpacePage() {
   return (
-    <div
-      className="flex min-h-screen flex-col bg-background text-foreground"
-      style={
-        { "--background": "#F2F0E8", "--foreground": "#000000" } as CSSProperties
-      }
-    >
+    <div className="flex min-h-screen flex-col">
       <SubpageHeader />
 
-      <nav className="sticky top-0 z-20 bg-background/90 backdrop-blur-sm md:mt-8">
-        <ul className="grid grid-cols-[1fr_auto_1fr] items-center gap-10 px-6 py-5 text-[13px] font-semibold uppercase tracking-[0.2em] sm:gap-40 sm:text-sm md:gap-64 md:text-[15px]">
-          {spaces.map((space, index) => (
-            <li
-              key={space.id}
-              className={
-                index === 0
-                  ? "justify-self-end"
-                  : index === 2
-                    ? "justify-self-start"
-                    : ""
-              }
-            >
-              <a
-                href={`#${space.id}`}
-                className="text-foreground transition-opacity hover:opacity-60"
-              >
-                {space.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SpaceTabs spaces={spaces.map(({ id, name }) => ({ id, name }))} />
 
       <main className="w-full flex-1">
-        {spaces.map((space) => (
+        {spaces.map((space, index) => (
           <section
             key={space.id}
             id={space.id}
             aria-label={space.name}
-            // Each section fills the screen below the sticky tab bar, so a tab
-            // click lands with the photo and its counter fully in view.
-            className="flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col pb-6 pt-8"
+            // The first section fills the screen below the header and tabs so
+            // its slider starts centered (it can't be scrolled any higher).
+            className={`flex scroll-mt-16 flex-col justify-center py-6 ${
+              index === 0
+                ? "min-h-[calc(100svh-6vh-60px)] sm:min-h-[calc(100svh-8vh-60px)] md:min-h-[calc(100svh-8vh-2rem-62px)]"
+                : "min-h-[calc(100svh-4rem)]"
+            }`}
           >
             <PhotoSlider photos={space.photos} label={space.name} />
           </section>

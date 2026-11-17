@@ -47,7 +47,7 @@ const business = [
 ];
 
 const labelClass =
-  "text-[13px] sm:text-sm font-bold uppercase tracking-[0.2em] text-foreground";
+  "text-base sm:text-lg font-bold uppercase tracking-[0.2em] text-foreground";
 const textClass = "text-[13px] sm:text-sm text-foreground";
 
 function Rows({ rows }: { rows: string[][] }) {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const CREAM = "#F8F5EE";
+const CREAM = "#F2F0E8";
 const BLACK = "#000000";
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
@@ -59,7 +59,7 @@ export default function MenuDrawer({
             href={item.href}
             onClick={onClose}
             className={`text-lg font-semibold uppercase tracking-[0.12em] ${
-              index === 2 ? "mt-6" : ""
+              index === 2 || index === 4 ? "mt-6" : ""
             }`}
             style={{ color: BLACK }}
           >

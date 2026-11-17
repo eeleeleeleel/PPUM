@@ -28,7 +28,7 @@ export default function SubpageHeader({ title }: { title?: string }) {
           href="/"
           className="-translate-y-[3px] leading-none text-foreground transition-opacity hover:opacity-70"
         >
-          <span className="font-[family-name:var(--font-display)] font-normal tracking-wide text-3xl sm:text-4xl">
+          <span className="font-[family-name:var(--font-display)] font-normal tracking-wide text-[26px] sm:text-[32px]">
             temps.
           </span>
         </Link>
