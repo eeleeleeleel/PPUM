@@ -8,13 +8,32 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-onest);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-display);
+  --animate-blink: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* Stop horizontal trackpad swipes from triggering browser back/forward
+   navigation, which fights with the photo sliders. */
+html,
+body {
+  overscroll-behavior-x: none;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Pretendard Variable", Arial, Helvetica,
+    sans-serif;
 }

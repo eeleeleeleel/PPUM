@@ -2,21 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import MenuDrawer from "./MenuDrawer";
 
 const CREAM = "#F8F5EE";
 const BLACK = "#000000";
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
-const menuItems = [
-  { label: "Space", href: "/space" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Guidelines", href: "/guidelines" },
-  { label: "Inquiry", href: "/inquiry" },
-];
-
-// TODO: replace with the studio's real Instagram URL
-const INSTAGRAM_URL = "https://instagram.com/";
+const INSTAGRAM_URL = "https://www.instagram.com/studio.temps/";
 
 export default function Brand() {
   const [zoomed, setZoomed] = useState(false);
@@ -44,49 +36,7 @@ export default function Brand() {
       className="relative flex h-screen flex-col overflow-hidden"
       style={{ backgroundColor: CREAM }}
     >
-      <div
-        className="fixed inset-0 z-40"
-        style={{
-          backgroundColor: "rgba(0, 0, 0, 0.35)",
-          opacity: menuOpen ? 1 : 0,
-          pointerEvents: menuOpen ? "auto" : "none",
-          transition: `opacity 500ms ${EASE}`,
-        }}
-        onClick={() => setMenuOpen(false)}
-      />
-
-      <nav
-        className="fixed inset-y-0 left-0 z-50 flex w-[75vw] max-w-[360px] flex-col gap-6 px-8 pt-8"
-        style={{
-          backgroundColor: CREAM,
-          transform: `translateX(${menuOpen ? "0" : "-100%"})`,
-          transition: `transform 600ms ${EASE}`,
-        }}
-      >
-        <button
-          type="button"
-          aria-label="Close menu"
-          onClick={() => setMenuOpen(false)}
-          className="mb-6 w-fit text-2xl"
-          style={{ color: BLACK }}
-        >
-          ×
-        </button>
-
-        {menuItems.map((item, index) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={() => setMenuOpen(false)}
-            className={`text-lg font-medium uppercase tracking-[0.2em] ${
-              index === 2 ? "mt-6" : ""
-            }`}
-            style={{ color: BLACK }}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+      <MenuDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <div className="relative flex-1">
         <Image
@@ -125,40 +75,25 @@ export default function Brand() {
             </span>
           </button>
 
-          <div className="flex items-center gap-5">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="transition-opacity hover:opacity-60"
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="transition-opacity hover:opacity-60"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke={CREAM}
+              strokeWidth="1.8"
+              className="h-7 w-7"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={CREAM}
-                strokeWidth="1.8"
-                className="h-7 w-7"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.3" cy="6.7" r="1" fill={CREAM} stroke="none" />
-              </svg>
-            </a>
-
-            <Link href="/inquiry" aria-label="Inquiry" className="transition-opacity hover:opacity-60">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={CREAM}
-                strokeWidth="1.8"
-                className="h-7 w-7"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="M4 7l8 6 8-6" />
-              </svg>
-            </Link>
-          </div>
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.3" cy="6.7" r="1" fill={CREAM} stroke="none" />
+            </svg>
+          </a>
         </div>
 
         <div className="absolute inset-0 flex items-center justify-center px-6 pb-[3%] text-center">
