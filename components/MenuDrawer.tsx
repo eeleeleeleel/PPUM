@@ -36,7 +36,7 @@ export default function MenuDrawer({
       />
 
       <nav
-        className="fixed inset-y-0 left-0 z-50 flex w-[75vw] max-w-[360px] flex-col gap-6 px-8 pt-8"
+        className="fixed inset-y-0 left-0 z-50 flex w-[60vw] max-w-[360px] sm:w-[75vw] flex-col gap-6 px-8 pt-8"
         style={{
           backgroundColor: CREAM,
           transform: `translateX(${open ? "0" : "-100%"})`,
