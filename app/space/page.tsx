@@ -51,7 +51,7 @@ export default function SpacePage() {
     >
       <SubpageHeader />
 
-      <nav className="sticky top-0 z-20 bg-background/90 backdrop-blur-sm">
+      <nav className="sticky top-0 z-20 bg-background/90 backdrop-blur-sm md:mt-8">
         <ul className="grid grid-cols-[1fr_auto_1fr] items-center gap-10 px-6 py-5 text-[13px] font-semibold uppercase tracking-[0.2em] sm:gap-40 sm:text-sm md:gap-64 md:text-[15px]">
           {spaces.map((space, index) => (
             <li
@@ -83,7 +83,7 @@ export default function SpacePage() {
             aria-label={space.name}
             // Each section fills the screen below the sticky tab bar, so a tab
             // click lands with the photo and its counter fully in view.
-            className="flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-center py-6"
+            className="flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col pb-6 pt-8"
           >
             <PhotoSlider photos={space.photos} label={space.name} />
           </section>
