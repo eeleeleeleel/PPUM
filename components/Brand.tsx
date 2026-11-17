@@ -53,7 +53,7 @@ export default function Brand() {
         />
 
         <div
-          className="absolute inset-x-0 top-0 z-10 flex h-[6vh] items-center justify-between px-3 backdrop-blur-sm sm:h-[8vh] sm:px-4 md:px-5"
+          className="absolute inset-x-0 top-0 z-10 flex h-[7vh] items-center justify-between px-3 backdrop-blur-sm sm:h-[9vh] sm:px-4 md:px-5"
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.18)",
             opacity: photoVisible ? 1 : 0,

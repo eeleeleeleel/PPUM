@@ -56,10 +56,10 @@ export default function SpacePage() {
             aria-label={space.name}
             // The first section fills the screen below the header and tabs so
             // its slider starts centered (it can't be scrolled any higher).
-            className={`flex scroll-mt-16 flex-col justify-center py-6 ${
+            className={`flex scroll-mt-[calc(7vh+4rem)] flex-col justify-center py-6 sm:scroll-mt-[calc(9vh+4rem)] ${
               index === 0
-                ? "min-h-[calc(100svh-6vh-60px)] sm:min-h-[calc(100svh-8vh-60px)] md:min-h-[calc(100svh-8vh-2rem-62px)]"
-                : "min-h-[calc(100svh-4rem)]"
+                ? "min-h-[calc(100svh-7vh-60px)] sm:min-h-[calc(100svh-9vh-60px)] md:min-h-[calc(100svh-9vh-2rem-62px)]"
+                : "min-h-[calc(100svh-7vh-4rem)] sm:min-h-[calc(100svh-9vh-4rem)]"
             }`}
           >
             <PhotoSlider photos={space.photos} label={space.name} />

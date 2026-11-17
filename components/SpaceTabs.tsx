@@ -22,13 +22,15 @@ export default function SpaceTabs({
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    const navHeight = navRef.current?.offsetHeight ?? 0;
+    // Pinned header + tabs cover the top of the screen.
+    const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+    const covered = headerHeight + (navRef.current?.offsetHeight ?? 0);
     const rect = target.getBoundingClientRect();
-    const free = window.innerHeight - navHeight;
+    const free = window.innerHeight - covered;
     const top =
       window.scrollY +
       rect.top -
-      navHeight -
+      covered -
       Math.max(0, (free - rect.height) / 2);
     window.scrollTo({ top, behavior: "smooth" });
   }
@@ -36,7 +38,7 @@ export default function SpaceTabs({
   return (
     <nav
       ref={navRef}
-      className="sticky top-0 z-20 bg-background/90 backdrop-blur-sm md:mt-8"
+      className="sticky top-[7vh] z-20 bg-background md:mt-8 sm:top-[9vh]"
     >
       <ul className="grid grid-cols-[1fr_auto_1fr] items-center gap-10 px-6 py-5 text-[13px] font-semibold uppercase tracking-[0.2em] sm:gap-40 sm:text-sm md:gap-64 md:text-[15px]">
         {spaces.map((space, index) => (

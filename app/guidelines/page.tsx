@@ -246,7 +246,7 @@ export default function GuidelinesPage() {
         </h1>
 
         {/* Phones: the section menu becomes a sticky, swipeable bar. */}
-        <nav className="sticky top-0 z-20 -mx-6 mb-8 bg-background md:hidden">
+        <nav className="sticky top-[7vh] z-20 -mx-6 mb-8 bg-background sm:top-[9vh] md:hidden">
           <ul className="flex h-12 items-center justify-between gap-2 whitespace-nowrap px-6 text-[11px] font-bold uppercase tracking-[0.04em] min-[360px]:gap-3 min-[360px]:text-xs min-[360px]:tracking-[0.08em]">
             {sections.map((section) => (
               <li key={section.id} className="shrink-0">
@@ -260,7 +260,7 @@ export default function GuidelinesPage() {
 
         <div className="md:grid md:grid-cols-[180px_1fr] md:gap-16">
           <nav aria-label="Guidelines sections" className="hidden md:block">
-            <ul className="sticky top-10 flex flex-col gap-5">
+            <ul className="sticky top-[calc(9vh+2.5rem)] flex flex-col gap-5">
               {sections.map((section) => (
                 <li key={section.id}>
                   <a
@@ -280,7 +280,7 @@ export default function GuidelinesPage() {
                 key={section.id}
                 id={section.id}
                 aria-label={section.title}
-                className={`scroll-mt-[45px] pb-16 md:-scroll-mt-0.5 ${
+                className={`scroll-mt-[calc(7vh+45px)] sm:scroll-mt-[calc(9vh+45px)] pb-16 md:scroll-mt-[calc(9vh-2px)] ${
                   index > 0 ? "border-t border-foreground/15 pt-16" : ""
                 }`}
               >
@@ -299,7 +299,7 @@ export default function GuidelinesPage() {
                     <div
                       key={groupId(section, i)}
                       id={groupId(section, i)}
-                      className="flex scroll-mt-[45px] flex-col gap-3 md:-scroll-mt-0.5"
+                      className="flex scroll-mt-[calc(7vh+45px)] sm:scroll-mt-[calc(9vh+45px)] flex-col gap-3 md:scroll-mt-[calc(9vh-2px)]"
                     >
                       <h3 className="text-[15px] sm:text-base font-bold text-foreground">
                         {group.title}

@@ -9,7 +9,8 @@ export default function SubpageHeader({ title }: { title?: string }) {
 
   return (
     <>
-      <header className="grid h-[6vh] grid-cols-[1fr_auto_1fr] items-center px-3 sm:h-[8vh] sm:px-4 md:px-5">
+      {/* Stays pinned while scrolling; page tab bars stick just below it (top-[7vh] sm:top-[9vh]). */}
+      <header className="sticky top-0 z-30 grid h-[7vh] grid-cols-[1fr_auto_1fr] items-center bg-background px-3 sm:h-[9vh] sm:px-4 md:px-5">
         <button
           type="button"
           aria-label="Menu"
@@ -26,7 +27,7 @@ export default function SubpageHeader({ title }: { title?: string }) {
 
         <Link
           href="/"
-          className="-translate-y-[3px] leading-none text-foreground transition-opacity hover:opacity-70"
+          className="leading-none text-foreground transition-opacity hover:opacity-70"
         >
           <span className="font-[family-name:var(--font-display)] font-normal tracking-wide text-[26px] sm:text-[32px]">
             temps.

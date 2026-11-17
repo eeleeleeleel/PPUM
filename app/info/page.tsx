@@ -74,7 +74,7 @@ export default function InfoPage() {
         </h1>
 
         {/* Bottom padding offsets the header + title so the details sit at screen center. */}
-        <div className="mx-auto flex w-full max-w-3xl flex-1 items-center md:pb-[calc(8vh+6rem)]">
+        <div className="mx-auto flex w-full max-w-3xl flex-1 items-center md:pb-[calc(9vh+6rem)]">
           <dl className="grid gap-10 md:grid-flow-col md:grid-cols-[auto_auto] md:grid-rows-[auto_1fr] md:gap-x-32">
             <div className="flex flex-col gap-3">
               <dt className={labelClass}>Address</dt>
