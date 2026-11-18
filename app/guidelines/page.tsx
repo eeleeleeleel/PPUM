@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Guidelines — temps. studio",
 };
 
-// "\n" in text marks a line break that applies on phones only.
+// "\n" in text marks a line break on phones only; "|" breaks on every screen.
 type Item = { text: string };
 // `plain` drops the leading dash, for directions rather than rules.
 // Phone photos are 1001×1334 unless a size is given.
@@ -76,7 +76,7 @@ const sections: Section[] = [
         title: "정리 및 원상 복구",
         items: [
           {
-            text: "일반·음식물 쓰레기는 직접 분리 배출해 주세요.\n종량제 봉투는 제공되지 않으니 미리 준비해 주세요.\n쓰레기는 건물 입구 앞에 있는 나무 아래에 두시면 됩니다.",
+            text: "일반·음식물 쓰레기는 직접 분리 배출해 주세요.\n종량제 봉투는 제공되지 않으니 미리 준비해 주세요.|쓰레기는 건물 입구 앞에 있는 나무 아래에 두시면 됩니다.",
           },
           { text: "사용한 가구와 소품은 제자리에 정리해 주세요." },
           { text: "바닥에 붙인 테이프는 깨끗이 떼어 주세요." },
@@ -318,15 +318,20 @@ export default function GuidelinesPage() {
                               </span>
                             )}
                             <span>
-                              {item.text.split("\n").map((line, i) => (
-                                <Fragment key={i}>
-                                  {i > 0 && (
-                                    <>
-                                      {" "}
-                                      <br className="sm:hidden" />
-                                    </>
-                                  )}
-                                  {line}
+                              {item.text.split("|").map((block, b) => (
+                                <Fragment key={b}>
+                                  {b > 0 && <br />}
+                                  {block.split("\n").map((line, i) => (
+                                    <Fragment key={i}>
+                                      {i > 0 && (
+                                        <>
+                                          {" "}
+                                          <br className="sm:hidden" />
+                                        </>
+                                      )}
+                                      {line}
+                                    </Fragment>
+                                  ))}
                                 </Fragment>
                               ))}
                             </span>
