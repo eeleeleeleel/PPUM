@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import MenuDrawer from "./MenuDrawer";
 
-export default function SubpageHeader({ title }: { title?: string }) {
+export default function SubpageHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -25,20 +25,34 @@ export default function SubpageHeader({ title }: { title?: string }) {
           </span>
         </button>
 
+        {/* Larger screens: centered wordmark. Phones: a home icon on the right. */}
         <Link
           href="/"
-          className="leading-none text-foreground transition-opacity hover:opacity-70"
+          className="hidden leading-none text-foreground transition-opacity hover:opacity-70 sm:block"
         >
-          <span className="font-[family-name:var(--font-display)] font-normal tracking-wide text-[26px] sm:text-[32px]">
+          <span className="font-[family-name:var(--font-display)] font-normal tracking-wide text-[32px]">
             temps.
           </span>
         </Link>
 
-        {title && (
-          <span className="justify-self-end text-xs sm:text-sm uppercase tracking-[0.2em] text-foreground/50">
-            {title}
-          </span>
-        )}
+        <Link
+          href="/"
+          aria-label="Home"
+          className="col-start-3 -m-3 justify-self-end p-3 text-foreground sm:hidden"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinejoin="round"
+            className="h-6 w-6"
+            aria-hidden
+          >
+            <path d="M2 10 12 2l10 8v12H2Z" />
+            <path d="M9 22v-7h6v7" />
+          </svg>
+        </Link>
       </header>
 
       <MenuDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
