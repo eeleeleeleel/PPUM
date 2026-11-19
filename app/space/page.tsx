@@ -30,11 +30,11 @@ const spaces = [
     })),
   },
   {
-    id: "grounds",
-    name: "Grounds",
+    id: "outdoor",
+    name: "Outdoor",
     photos: Array.from({ length: 7 }, (_, i) => ({
-      src: `/space/grounds/${String(i + 1).padStart(2, "0")}.jpg`,
-      alt: `temps. grounds ${i + 1}`,
+      src: `/space/outdoor/${String(i + 1).padStart(2, "0")}.jpg`,
+      alt: `temps. outdoor ${i + 1}`,
       width: 1599,
       height: 2000,
     })),

@@ -2,7 +2,7 @@
 
 import { useRef, type MouseEvent } from "react";
 
-// Sticky STUDIO / CAFÉ / GROUNDS tabs. A tab click scrolls so that space's
+// Sticky STUDIO / CAFÉ / OUTDOOR tabs. A tab click scrolls so that space's
 // slider (photo + counter) sits centered in the screen area below the tabs.
 export default function SpaceTabs({
   spaces,
