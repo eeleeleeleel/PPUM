@@ -12,7 +12,7 @@ const spaces = [
   {
     id: "studio-atrium",
     name: "Studio",
-    photos: Array.from({ length: 21 }, (_, i) => ({
+    photos: Array.from({ length: 35 }, (_, i) => ({
       src: `/space/studio-atrium/${String(i + 1).padStart(2, "0")}.jpg`,
       alt: `temps. studio · atrium ${i + 1}`,
       width: 1599,
@@ -22,7 +22,7 @@ const spaces = [
   {
     id: "cafe",
     name: "Café",
-    photos: Array.from({ length: 13 }, (_, i) => ({
+    photos: Array.from({ length: 19 }, (_, i) => ({
       src: `/space/cafe/${String(i + 1).padStart(2, "0")}.jpg`,
       alt: `temps. café ${i + 1}`,
       width: 1599,
@@ -32,7 +32,7 @@ const spaces = [
   {
     id: "outdoor",
     name: "Outdoor",
-    photos: Array.from({ length: 7 }, (_, i) => ({
+    photos: Array.from({ length: 8 }, (_, i) => ({
       src: `/space/outdoor/${String(i + 1).padStart(2, "0")}.jpg`,
       alt: `temps. outdoor ${i + 1}`,
       width: 1599,
